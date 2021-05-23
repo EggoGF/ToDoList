@@ -21,6 +21,8 @@ import gngo.com.example.zoolist.R;
 public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecyclerViewAdapter.ViewHolder> {
 /*
     @NotNull*/
+    public final static String TAG="ZooListAdapter";
+
     public interface OnAdapterItemInteraction{
         void onItemSelected(Animal animal);
 }
@@ -35,7 +37,7 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
     @NonNull
     @Override
     public AnimalRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_linear, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_linear, parent, false);
         return new ViewHolder(view);
         //should line 35 be parent?
     }
@@ -45,7 +47,7 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
         holder.txtName.setText(mValues.get(position).getName());
         holder.txtLocation.setText(mValues.get(position).getLocation());
         if(TextUtils.equals(mValues.get(position).getType(),Animal.MAMMAL))
-            holder.imgSpecies.setImageResource(R.drawable.ic_bird);
+            holder.imgSpecies.setImageResource(R.drawable.ic_lion);
         else if (TextUtils.equals(mValues.get(position).getType(),Animal.BIRD))
             holder.imgSpecies.setImageResource(R.drawable.ic_bird);
         else
