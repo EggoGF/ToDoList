@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -142,7 +143,8 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
     }
 
     public void showMissingInfoAlert(){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+        ContextThemeWrapper ctw = new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctw);
         alertDialogBuilder.setTitle(getResources().getString(R.string.alert_title));
         alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
 
