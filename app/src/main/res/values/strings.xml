@@ -25,5 +25,9 @@
         <item>Poisonous Plains</item>
     </string-array>
 
+    // Alert strings
+    <string name="alert_title">Animal Name Missing</string>
+    <string name="alert_message">Please enter an animal name</string>
+
 </resources>
 

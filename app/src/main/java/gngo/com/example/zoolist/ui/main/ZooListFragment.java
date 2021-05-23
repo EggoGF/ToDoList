@@ -2,7 +2,9 @@ package gngo.com.example.zoolist.ui.main;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -101,7 +103,7 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
 
         // Don't enter info which does not contain mandatory items
         if(TextUtils.isEmpty(animalName)){
-            Log.d(TAG,"Missing animal name");
+            showMissingInfoAlert();
         } else {
             //EditText location = getActivity().findViewById(R.id.zoo_location);
             Spinner zoo_area=getActivity().findViewById(R.id.zoo_location);
@@ -137,5 +139,29 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
     @Override
     public void onItemSelected(Animal animal) {
         onDelete(animal);
+    }
+
+    public void showMissingInfoAlert(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+        alertDialogBuilder.setTitle(getResources().getString(R.string.alert_title));
+        alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage(getResources().getString(R.string.alert_message))
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                            public void onClick(DialogInterface dialog,int id){
+                                // if this button is clicked, close current activity
+                                dialog.cancel();
+                            }
+                    });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
     }
 }
