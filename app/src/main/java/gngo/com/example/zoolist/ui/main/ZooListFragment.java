@@ -21,6 +21,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import gngo.com.example.zoolist.R;
@@ -99,8 +100,9 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
         if(TextUtils.isEmpty(animalName)){
             Log.d(TAG,"Missing animal name");
         } else {
-            EditText location = getActivity().findViewById(R.id.zoo_location);
-            String animalLoc = location.getText().toString();
+            //EditText location = getActivity().findViewById(R.id.zoo_location);
+            Spinner zoo_area=getActivity().findViewById(R.id.zoo_location);
+            String animalLoc = zoo_area.getSelectedItem().toString();
             RadioGroup types = getActivity().findViewById(R.id.zoo_animalType);
             String type = "rock";
             switch (types.getCheckedRadioButtonId()){

@@ -11,5 +11,19 @@
     <string name="hint_name">animal species name</string>
     <string name="hint_location">zoo area</string>
 
+    // Zoo Area Names
+    <string-array name="zoo_areas">
+        <item>Desolation Desert</item>
+        <item>Swamp of Sorrows</item>
+        <item>Jungle of Joylessness</item>
+        <item>Rueful Rainforest</item>
+        <item>Martyrs Mesa</item>
+        <item>Canyon of Cries</item>
+        <item>Forbidden Forest</item>
+        <item>Sinister Sanctuary</item>
+        <item>Abnormal Aviary</item>
+        <item>Poisonous Plains</item>
+    </string-array>
+
 </resources>
 

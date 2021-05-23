@@ -77,6 +77,12 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
     mValues.add(item);
     notifyItemInserted(mValues.size()-1);}
 
+    public void remove(Animal item){
+        int position = mValues.indexOf(item);
+        mValues.remove(position);
+        notifyItemRemoved(position);
+    }
+
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
