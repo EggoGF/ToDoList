@@ -1,10 +1,14 @@
 package gngo.com.example.zoolist.ui.main;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public final class DBHelper {
     private static final String LOGTAG = "DBHelper";
@@ -49,33 +53,73 @@ public final class DBHelper {
             }
         }
 
-        public long insert(Animal animalinfo){
-        // bind values to the pre-compiled SQL statement "inserStmt"
-            insertStmt.bindString(COLUMN_NAME, animalinfo.getName());
-            insertStmt.bindString(COLUMN_LOCATION, animalinfo.getLocation());
-            insertStmt.bindString(COLUMN_TYPE, animalinfo.getType());
+    public long insert(Animal animalinfo){
+    // bind values to the pre-compiled SQL statement "inserStmt"
+        insertStmt.bindString(COLUMN_NAME, animalinfo.getName());
+        insertStmt.bindString(COLUMN_LOCATION, animalinfo.getLocation());
+        insertStmt.bindString(COLUMN_TYPE, animalinfo.getType());
 
-            long value =-1;
-            try{
-                // Execute the sqlite statement.
-                value = insertStmt.executeInsert();
-            } catch (Exception e){
-                Log.e(LOGTAG, " executeInsert problem: " + e);
-            }
-            Log.d (LOGTAG, "value=" + value);
-            return value;
+        long value =-1;
+        try{
+            // Execute the sqlite statement.
+            value = insertStmt.executeInsert();
+        } catch (Exception e){
+            Log.e(LOGTAG, " executeInsert problem: " + e);
         }
+        Log.d (LOGTAG, "value=" + value);
+        return value;
+    }
 
-        public void deleteAll(){
-        db.delete(TABLE_NAME, null, null);
-        }
+    public void deleteAll(){
+    db.delete(TABLE_NAME, null, null);
+    }
 
-        // delete a row in the database
+    // delete a row in the database
     public boolean deleteRecord(long rowId){
         return db.delete(TABLE_NAME, KEY_ID + "=" + rowId, null) > 0;
     }
 
-    
+    // Creates a list of animal info retrieved from the sqlite database.
+    public List<Animal> selectAll(){
+        List<Animal> list = new ArrayList<>();
+
+        // query takes the following parameters
+        // dbName : the table name
+        // columnNames: a list of which table columns to return
+        // whereClause: filter of selection of data; null selects all data
+        // selectionArg: values to fill in the ? if any are in the whereClause
+        // group by: Filter specifying how to group rows, null means no grouping
+        // having: filter for groups, null means none
+        // orderBy: Table columns used to order the data, null means no order.
+
+        // A Cursor provides read-write access to the result set returned by a database query.
+        // A Cursor represents the result of the query and points to one row of the query result.
+        Cursor cursor = db.query(TABLE_NAME,
+                new String[]{KEY_ID, KEY_NAME, KEY_LOCATION, KEY_TYPE},
+                null, null, null, null, null);
+
+        if (cursor.moveToFirst())
+        {
+            do {
+                Animal animalInfo = new Animal();
+                animalInfo.setName(cursor.getString(COLUMN_NAME));
+                animalInfo.setLocation(cursor.getString(COLUMN_LOCATION));
+                animalInfo.setType(cursor.getString(COLUMN_TYPE));
+                animalInfo.setId(cursor.getLong(COLUMN_ID));
+                list.add(animalInfo);
+            }
+            while (cursor.moveToNext());
+        }
+        if (cursor != null && !cursor.isClosed())
+        {
+            cursor.close();
+        }
+        return list;
+    }
+
+
+
+
 
     // Helper class for DB creation/update
     // SQLiteOpenHelper provides getReadableDatabase() and getWriteableDatabase() methods
