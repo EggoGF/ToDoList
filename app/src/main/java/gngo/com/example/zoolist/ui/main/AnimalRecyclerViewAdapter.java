@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -76,12 +77,15 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
     mValues.add(item);
     notifyItemInserted(mValues.size()-1);}
 
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final ImageView imgSpecies;
         public final TextView txtName;
         public final TextView txtLocation;
-        public ViewHolder(View view){
+
+        public ViewHolder(View view) {
             super(view);
             mView = view;
             txtName = view.findViewById(R.id.name);
@@ -90,8 +94,9 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
         }
 
         @Override
-        public String toString(){
-            return super.toString()+ " '" + txtLocation.getText() + "'";
+        public String toString() {
+            return super.toString() + " '" + txtLocation.getText() + "'";
         }
     }
+
 }

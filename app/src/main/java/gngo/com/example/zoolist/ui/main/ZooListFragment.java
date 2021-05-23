@@ -21,6 +21,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import gngo.com.example.zoolist.R;
 
@@ -46,6 +47,20 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+    }
+    public void onDelete(Animal animal) {
+        // When clicked, delete the item that was clicked.
+        // (Show a toast to indicate what is occurring)
+        if (animal != null) {
+            String item = "deleting: " + animal.getName();
+            Toast.makeText(getActivity(), item, Toast.LENGTH_SHORT).show();
+            Log.d(TAG, " onItemClick: " + animal.getName());
+
+            // Removes the object from the array held in the viewModel
+            mViewModel.removeAnimal(animal);
+            // Notifies that the underlying data has changed
+            adapter.notifyDataSetChanged();
+        }
     }
 
     @Override
@@ -116,6 +131,6 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
 
     @Override
     public void onItemSelected(Animal animal) {
-
+        onDelete(animal);
     }
 }
