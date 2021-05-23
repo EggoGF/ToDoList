@@ -71,6 +71,9 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
         // Instantiate the viewModel
         mViewModel = new ViewModelProvider(this).get(ZooListViewModel.class);
 
+        // Use database
+        mViewModel.init_database(getActivity());
+
         // Instantiate the recyclerView
         RecyclerView recyclerView = getActivity().findViewById(R.id.zoo_animals);
 
