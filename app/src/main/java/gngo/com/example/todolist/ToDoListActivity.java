@@ -1,17 +1,17 @@
-package gngo.com.example.zoolist;
+package gngo.com.example.todolist;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import gngo.com.example.zoolist.ui.main.ZooListFragment;
+import gngo.com.example.todolist.ui.main.ZooListFragment;
 
-public class ZooListActivity extends AppCompatActivity {
+public class ToDoListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.zoo_list_activity);
+        setContentView(R.layout.to_do_list_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, ZooListFragment.newInstance())

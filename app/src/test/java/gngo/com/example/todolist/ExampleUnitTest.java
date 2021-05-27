@@ -1,4 +1,4 @@
-package gngo.com.example.zoolist;
+package gngo.com.example.todolist;
 
 import org.junit.Test;
 

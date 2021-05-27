@@ -1,4 +1,4 @@
-package gngo.com.example.zoolist.ui.main;
+package gngo.com.example.todolist.ui.main;
 
 public class Animal {
     public final static String MAMMAL = "mammal";

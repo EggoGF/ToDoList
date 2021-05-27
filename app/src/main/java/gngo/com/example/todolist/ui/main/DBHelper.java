@@ -1,4 +1,4 @@
-package gngo.com.example.zoolist.ui.main;
+package gngo.com.example.todolist.ui.main;
 
 import android.content.Context;
 import android.database.Cursor;

@@ -1,4 +1,4 @@
-package gngo.com.example.zoolist.ui.main;
+package gngo.com.example.todolist.ui.main;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -27,7 +27,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import gngo.com.example.zoolist.R;
+import gngo.com.example.todolist.R;
 
 public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapter.OnAdapterItemInteraction {
 
@@ -44,7 +44,7 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.zoo_list_fragment, container, false);
+        return inflater.inflate(R.layout.to_do_list_fragment, container, false);
     }
 
     @Override
