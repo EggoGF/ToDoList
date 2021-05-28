@@ -53,7 +53,7 @@ public final class DBHelper {
             }
         }
 
-    public long insert(Animal animalinfo){
+    public long insert(Task animalinfo){
     // bind values to the pre-compiled SQL statement "inserStmt"
         insertStmt.bindString(COLUMN_NAME, animalinfo.getName());
         insertStmt.bindString(COLUMN_LOCATION, animalinfo.getLocation());
@@ -80,8 +80,8 @@ public final class DBHelper {
     }
 
     // Creates a list of animal info retrieved from the sqlite database.
-    public List<Animal> selectAll(){
-        List<Animal> list = new ArrayList<>();
+    public List<Task> selectAll(){
+        List<Task> list = new ArrayList<>();
 
         // query takes the following parameters
         // dbName : the table name
@@ -101,12 +101,12 @@ public final class DBHelper {
         if (cursor.moveToFirst())
         {
             do {
-                Animal animalInfo = new Animal();
-                animalInfo.setName(cursor.getString(COLUMN_NAME));
-                animalInfo.setLocation(cursor.getString(COLUMN_LOCATION));
-                animalInfo.setType(cursor.getString(COLUMN_TYPE));
-                animalInfo.setId(cursor.getLong(COLUMN_ID));
-                list.add(animalInfo);
+                Task taskInfo = new Task();
+                taskInfo.setName(cursor.getString(COLUMN_NAME));
+                taskInfo.setLocation(cursor.getString(COLUMN_LOCATION));
+                taskInfo.setType(cursor.getString(COLUMN_TYPE));
+                taskInfo.setId(cursor.getLong(COLUMN_ID));
+                list.add(taskInfo);
             }
             while (cursor.moveToNext());
         }

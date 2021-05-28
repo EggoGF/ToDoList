@@ -12,36 +12,36 @@ public class ZooListViewModel extends ViewModel {
     public final static String TAG = "ZooListViewModel";
     private DBHelper dbHelper = null;
 
-    List<Animal> animals=new ArrayList<>();
+    List<Task> tasks =new ArrayList<>();
 
-    public List<Animal> getAnimals(){
-        return animals;
+    public List<Task> getAnimals(){
+        return tasks;
     }
 
-    public Animal addAnimal(String animalName, String location, String type){
-        Animal animal=new Animal();
-        animal.setName(animalName);
-        animal.setLocation(location);
-        animal.setType(type);
-        animals.add(animal);
+    public Task addAnimal(String animalName, String location, String type){
+        Task task =new Task();
+        task.setName(animalName);
+        task.setLocation(location);
+        task.setType(type);
+        tasks.add(task);
 
         long animalId;
         if (dbHelper != null){
-            animalId = dbHelper.insert(animal);
-            animal.setId(animalId);
+            animalId = dbHelper.insert(task);
+            task.setId(animalId);
         }
 
-        return animal;
+        return task;
     }
 
-    public Animal removeAnimal(Animal animal){
-        animals.remove(animal);
+    public Task removeAnimal(Task task){
+        tasks.remove(task);
 
         // database delete record
         if (dbHelper != null){
-            dbHelper.deleteRecord(animal.getId());
+            dbHelper.deleteRecord(task.getId());
         }
-        return animal;
+        return task;
     }
 
     public void init_database(Context context){
@@ -49,12 +49,12 @@ public class ZooListViewModel extends ViewModel {
             if(dbHelper == null){
                 Log.d(TAG, "init_database: DB Helper null, create one");
                 dbHelper = new DBHelper(context);
-                animals = dbHelper.selectAll();
+                tasks = dbHelper.selectAll();
             } else{
                 Log.d(TAG, "init_database: DBHelper already exists");
             }
-            if (!animals.isEmpty()){
-                Log.d(TAG," animals list is not empty size: " + animals.size());
+            if (!tasks.isEmpty()){
+                Log.d(TAG," tasks list is not empty size: " + tasks.size());
             }
         } catch (Exception e){
             Log.d(TAG, "init_database: DBHelper threw exception: " + e);

@@ -1,11 +1,11 @@
 package gngo.com.example.todolist.ui.main;
 
-public class Animal {
+public class Task {
     public final static String MAMMAL = "mammal";
     public final static String BIRD = "bird";
     public final static String REPTILE = "reptile";
 
-    private String name="";
+    private String title="";
     private String location="";
     private String type="";
     protected long id = 0;
@@ -19,11 +19,11 @@ public class Animal {
     }
 
     public String getName(){
-        return(name);
+        return(title);
     }
 
-    public void setName(String name){
-        this.name = name;
+    public void setName(String title){
+        this.title = title;
     }
 
     public String getLocation(){
@@ -44,8 +44,8 @@ public class Animal {
 
     @Override
     public String toString(){
-        return "Animal{" +
-                "name='" + name + "'" +
+        return "Task{" +
+                "name='" + title + "'" +
                 ", location='" + location + "'" +
                         ", type='" + type + "'" +
                                 '}';

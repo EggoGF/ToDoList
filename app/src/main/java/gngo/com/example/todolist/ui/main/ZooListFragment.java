@@ -52,16 +52,16 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
         super.onCreate(savedInstanceState);
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
-    public void onDelete(Animal animal) {
+    public void onDelete(Task task) {
         // When clicked, delete the item that was clicked.
         // (Show a toast to indicate what is occurring)
-        if (animal != null) {
-            String item = "deleting: " + animal.getName();
+        if (task != null) {
+            String item = "deleting: " + task.getName();
             Toast.makeText(getActivity(), item, Toast.LENGTH_SHORT).show();
-            Log.d(TAG, " onItemClick: " + animal.getName());
+            Log.d(TAG, " onItemClick: " + task.getName());
 
             // Removes the object from the array held in the viewModel
-            mViewModel.removeAnimal(animal);
+            mViewModel.removeAnimal(task);
             // Notifies that the underlying data has changed
             adapter.notifyDataSetChanged();
         }
@@ -113,13 +113,13 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
             String type = "rock";
             switch (types.getCheckedRadioButtonId()){
                 case R.id.zoo_animalTypeMammal:
-                    type = Animal.MAMMAL;
+                    type = Task.MAMMAL;
                     break;
                 case R.id.zoo_animalTypeBird:
-                    type = Animal.BIRD;
+                    type = Task.BIRD;
                     break;
                 case R.id.zoo_animalTypeReptile:
-                    type = Animal.REPTILE;
+                    type = Task.REPTILE;
                     break;
             }
 
@@ -138,8 +138,8 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
     }
 
     @Override
-    public void onItemSelected(Animal animal) {
-        onDelete(animal);
+    public void onItemSelected(Task task) {
+        onDelete(task);
     }
 
     public void showMissingInfoAlert(){

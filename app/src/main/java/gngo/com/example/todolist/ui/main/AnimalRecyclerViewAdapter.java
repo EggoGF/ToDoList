@@ -21,13 +21,13 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
     public final static String TAG="ZooListAdapter";
 
     public interface OnAdapterItemInteraction{
-        void onItemSelected(Animal animal);
+        void onItemSelected(Task task);
 }
 
-    private final List<Animal> mValues;
+    private final List<Task> mValues;
     final OnAdapterItemInteraction mListener;
 
-    public AnimalRecyclerViewAdapter(List<Animal> items, OnAdapterItemInteraction listener){
+    public AnimalRecyclerViewAdapter(List<Task> items, OnAdapterItemInteraction listener){
         mValues = items;
         mListener = listener;
     }
@@ -43,13 +43,13 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
     public void onBindViewHolder(@NonNull AnimalRecyclerViewAdapter.ViewHolder holder, int position) {
         holder.txtName.setText(mValues.get(position).getName());
         holder.txtLocation.setText(mValues.get(position).getLocation());
-        if(TextUtils.equals(mValues.get(position).getType(),Animal.MAMMAL))
+        if(TextUtils.equals(mValues.get(position).getType(), Task.MAMMAL))
             holder.imgSpecies.setImageResource(R.drawable.ic_lion);
-        else if (TextUtils.equals(mValues.get(position).getType(),Animal.BIRD))
+        else if (TextUtils.equals(mValues.get(position).getType(), Task.BIRD))
             holder.imgSpecies.setImageResource(R.drawable.ic_bird);
         else
             holder.imgSpecies.setImageResource(R.drawable.ic_lizard);
-        final Animal animal = mValues.get(position);
+        final Task task = mValues.get(position);
 
         holder.mView.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -57,7 +57,7 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
                 if (null != mListener){
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onItemSelected(animal);
+                    mListener.onItemSelected(task);
                 }
             }
         });
@@ -68,12 +68,12 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
         return mValues.size();
     }
 
-    public void add(Animal item){
+    public void add(Task item){
     Log.d(TAG,"ADD" + item.toString());
     mValues.add(item);
     notifyItemInserted(mValues.size()-1);}
 
-    public void remove(Animal item){
+    public void remove(Task item){
         int position = mValues.indexOf(item);
         mValues.remove(position);
         notifyItemRemoved(position);
