@@ -7,7 +7,7 @@ public class Task {
 
     private String title="";
     private String location="";
-    private String type="";
+    //private String type="";
     protected long id = 0;
 
     public long getId(){
@@ -34,20 +34,18 @@ public class Task {
         this.location = location;
     }
 
-    public String getType(){
+/*    public String getType(){
         return (type);
     }
 
     public void setType(String type){
         this.type=type;
-    }
+    }*/
 
     @Override
     public String toString(){
         return "Task{" +
                 "name='" + title + "'" +
-                ", location='" + location + "'" +
-                        ", type='" + type + "'" +
-                                '}';
+                ", location='" + location + "'";
     }
 }

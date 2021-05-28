@@ -124,7 +124,7 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
             }
 
             // Add the object at the end of the array kept in the viewModel
-            mViewModel.addAnimal(animalName, animalLoc, type);
+            mViewModel.addAnimal(animalName, animalLoc);
 
             // Notifies the adapter that the underlying data has changed,
             //          any View reflecting the data should refresh itself.
@@ -146,7 +146,7 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
         ContextThemeWrapper ctw = new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctw);
         alertDialogBuilder.setTitle(getResources().getString(R.string.alert_title));
-        alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
+
 
         // set dialog message
         alertDialogBuilder

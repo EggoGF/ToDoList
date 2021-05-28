@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <ImageView
+<!--    <ImageView
         android:id="@+id/icon"
         android:layout_width="@dimen/width40"
         android:layout_height="@dimen/height40"
@@ -13,7 +13,7 @@
         android:paddingTop="@dimen/list_item_padding_vertical"
         android:paddingBottom="@dimen/list_item_top_line_padding_vertical"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/ic_bird" />
+        app:srcCompat="@drawable/ic_bird" />-->
 
     <LinearLayout
         android:layout_width="match_parent"

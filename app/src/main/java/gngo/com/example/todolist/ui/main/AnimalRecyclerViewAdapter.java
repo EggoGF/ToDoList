@@ -43,12 +43,7 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
     public void onBindViewHolder(@NonNull AnimalRecyclerViewAdapter.ViewHolder holder, int position) {
         holder.txtName.setText(mValues.get(position).getName());
         holder.txtLocation.setText(mValues.get(position).getLocation());
-        if(TextUtils.equals(mValues.get(position).getType(), Task.MAMMAL))
-            holder.imgSpecies.setImageResource(R.drawable.ic_lion);
-        else if (TextUtils.equals(mValues.get(position).getType(), Task.BIRD))
-            holder.imgSpecies.setImageResource(R.drawable.ic_bird);
-        else
-            holder.imgSpecies.setImageResource(R.drawable.ic_lizard);
+
         final Task task = mValues.get(position);
 
         holder.mView.setOnClickListener(new View.OnClickListener(){
@@ -83,7 +78,7 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final ImageView imgSpecies;
+
         public final TextView txtName;
         public final TextView txtLocation;
 
@@ -92,7 +87,7 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
             mView = view;
             txtName = view.findViewById(R.id.task);
             txtLocation = view.findViewById(R.id.description);
-            imgSpecies = view.findViewById(R.id.icon);
+
         }
 
         @Override
