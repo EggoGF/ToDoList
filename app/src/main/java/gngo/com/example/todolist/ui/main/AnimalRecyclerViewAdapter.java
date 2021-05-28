@@ -90,8 +90,8 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            txtName = view.findViewById(R.id.name);
-            txtLocation = view.findViewById(R.id.location);
+            txtName = view.findViewById(R.id.task);
+            txtLocation = view.findViewById(R.id.description);
             imgSpecies = view.findViewById(R.id.icon);
         }
 

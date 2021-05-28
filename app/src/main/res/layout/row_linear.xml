@@ -21,7 +21,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/task"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/list_item_top_line_padding_vertical"
@@ -31,7 +31,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/location"
+            android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/list_item_padding_vertical"
