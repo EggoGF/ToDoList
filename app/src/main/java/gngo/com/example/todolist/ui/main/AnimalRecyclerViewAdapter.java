@@ -42,7 +42,7 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
     @Override
     public void onBindViewHolder(@NonNull AnimalRecyclerViewAdapter.ViewHolder holder, int position) {
         holder.txtName.setText(mValues.get(position).getName());
-        holder.txtLocation.setText(mValues.get(position).getLocation());
+        holder.txtDescription.setText(mValues.get(position).getDescription());
 
         final Task task = mValues.get(position);
 
@@ -80,19 +80,19 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
         public final View mView;
 
         public final TextView txtName;
-        public final TextView txtLocation;
+        public final TextView txtDescription;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             txtName = view.findViewById(R.id.task);
-            txtLocation = view.findViewById(R.id.description);
+            txtDescription = view.findViewById(R.id.description);
 
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + txtLocation.getText() + "'";
+            return super.toString() + " '" + txtDescription.getText() + "'";
         }
     }
 

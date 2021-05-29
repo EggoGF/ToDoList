@@ -18,10 +18,10 @@ public class ZooListViewModel extends ViewModel {
         return tasks;
     }
 
-    public Task addAnimal(String animalName, String location){
+    public Task addAnimal(String animalName, String description){
         Task task =new Task();
         task.setName(animalName);
-        task.setLocation(location);
+        task.setDescription(description);
         //task.setType(type);
         tasks.add(task);
 

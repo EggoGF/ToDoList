@@ -56,7 +56,7 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
         // When clicked, delete the item that was clicked.
         // (Show a toast to indicate what is occurring)
         if (task != null) {
-            String item = "deleting: " + task.getName();
+            String item = "Completed: " + task.getName();
             Toast.makeText(getActivity(), item, Toast.LENGTH_SHORT).show();
             Log.d(TAG, " onItemClick: " + task.getName());
 

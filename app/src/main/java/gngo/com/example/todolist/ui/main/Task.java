@@ -6,7 +6,7 @@ public class Task {
     public final static String REPTILE = "reptile";
 
     private String title="";
-    private String location="";
+    private String description="";
     //private String type="";
     protected long id = 0;
 
@@ -26,12 +26,12 @@ public class Task {
         this.title = title;
     }
 
-    public String getLocation(){
-        return(location);
+    public String getDescription(){
+        return(description);
     }
 
-    public void setLocation(String location){
-        this.location = location;
+    public void setDescription(String description){
+        this.description = description;
     }
 
 /*    public String getType(){
@@ -46,6 +46,6 @@ public class Task {
     public String toString(){
         return "Task{" +
                 "name='" + title + "'" +
-                ", location='" + location + "'";
+                ", description='" + description + "'";
     }
 }
