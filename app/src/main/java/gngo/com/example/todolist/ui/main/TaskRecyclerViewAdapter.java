@@ -1,11 +1,9 @@
 package gngo.com.example.todolist.ui.main;
 
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +13,7 @@ import java.util.List;
 
 import gngo.com.example.todolist.R;
 
-public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecyclerViewAdapter.ViewHolder> {
+public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerViewAdapter.ViewHolder> {
 /*
     @NotNull*/
     public final static String TAG="ZooListAdapter";
@@ -27,21 +25,20 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
     private final List<Task> mValues;
     final OnAdapterItemInteraction mListener;
 
-    public AnimalRecyclerViewAdapter(List<Task> items, OnAdapterItemInteraction listener){
+    public TaskRecyclerViewAdapter(List<Task> items, OnAdapterItemInteraction listener){
         mValues = items;
         mListener = listener;
     }
     @NonNull
     @Override
-    public AnimalRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TaskRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_linear, parent, false);
         return new ViewHolder(view);
-        //should line 35 be parent?
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AnimalRecyclerViewAdapter.ViewHolder holder, int position) {
-        holder.txtName.setText(mValues.get(position).getName());
+    public void onBindViewHolder(@NonNull TaskRecyclerViewAdapter.ViewHolder holder, int position) {
+        holder.txtTitle.setText(mValues.get(position).getTitle());
         holder.txtDescription.setText(mValues.get(position).getDescription());
 
         final Task task = mValues.get(position);
@@ -79,13 +76,13 @@ public class AnimalRecyclerViewAdapter extends RecyclerView.Adapter<AnimalRecycl
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
 
-        public final TextView txtName;
+        public final TextView txtTitle;
         public final TextView txtDescription;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            txtName = view.findViewById(R.id.task);
+            txtTitle = view.findViewById(R.id.task);
             txtDescription = view.findViewById(R.id.description);
 
         }

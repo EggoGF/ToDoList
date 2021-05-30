@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import gngo.com.example.todolist.ui.main.ZooListFragment;
+import gngo.com.example.todolist.ui.main.ToDoListFragment;
 
 public class ToDoListActivity extends AppCompatActivity {
 
@@ -14,7 +14,7 @@ public class ToDoListActivity extends AppCompatActivity {
         setContentView(R.layout.to_do_list_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, ZooListFragment.newInstance())
+                    .replace(R.id.container, ToDoListFragment.newInstance())
                     .commitNow();
         }
     }

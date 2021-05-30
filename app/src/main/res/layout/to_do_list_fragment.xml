@@ -5,7 +5,7 @@
     android:id="@+id/to_do_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.ZooListFragment">
+    tools:context=".ui.main.ToDoListFragment">
 
     <ScrollView
         android:id="@+id/zoo_scroll_view"

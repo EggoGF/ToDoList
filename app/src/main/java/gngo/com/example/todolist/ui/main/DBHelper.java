@@ -55,7 +55,7 @@ public final class DBHelper {
 
     public long insert(Task animalinfo){
     // bind values to the pre-compiled SQL statement "inserStmt"
-        insertStmt.bindString(COLUMN_NAME, animalinfo.getName());
+        insertStmt.bindString(COLUMN_NAME, animalinfo.getTitle());
         insertStmt.bindString(COLUMN_LOCATION, animalinfo.getDescription());
         //insertStmt.bindString(COLUMN_TYPE, animalinfo.getType());
 
@@ -102,7 +102,7 @@ public final class DBHelper {
         {
             do {
                 Task taskInfo = new Task();
-                taskInfo.setName(cursor.getString(COLUMN_NAME));
+                taskInfo.setTitle(cursor.getString(COLUMN_NAME));
                 taskInfo.setDescription(cursor.getString(COLUMN_LOCATION));
                 //taskInfo.setType(cursor.getString(COLUMN_TYPE));
                 taskInfo.setId(cursor.getLong(COLUMN_ID));

@@ -29,15 +29,15 @@ import android.widget.Toast;
 
 import gngo.com.example.todolist.R;
 
-public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapter.OnAdapterItemInteraction {
+public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapter.OnAdapterItemInteraction {
 
-    private ZooListViewModel mViewModel;
+    private ToDoListViewModel mViewModel;
 
     public final static String TAG="ZooList";
-    AnimalRecyclerViewAdapter adapter;
+    TaskRecyclerViewAdapter adapter;
 
-    public static ZooListFragment newInstance() {
-        return new ZooListFragment();
+    public static ToDoListFragment newInstance() {
+        return new ToDoListFragment();
     }
 
     @Nullable
@@ -56,9 +56,9 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
         // When clicked, delete the item that was clicked.
         // (Show a toast to indicate what is occurring)
         if (task != null) {
-            String item = "Completed: " + task.getName();
+            String item = "Completed: " + task.getTitle();
             Toast.makeText(getActivity(), item, Toast.LENGTH_SHORT).show();
-            Log.d(TAG, " onItemClick: " + task.getName());
+            Log.d(TAG, " onItemClick: " + task.getTitle());
 
             // Removes the object from the array held in the viewModel
             mViewModel.removeAnimal(task);
@@ -72,7 +72,7 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
         super.onActivityCreated(savedInstanceState);
 
         // Instantiate the viewModel
-        mViewModel = new ViewModelProvider(this).get(ZooListViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(ToDoListViewModel.class);
 
         // Use database
         mViewModel.init_database(getActivity());
@@ -83,8 +83,8 @@ public class ZooListFragment extends Fragment implements AnimalRecyclerViewAdapt
         // Instantiate the layoutManager and set it into the recyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        // Instantiate an AnimalRecyclerViewAdapter, pass the data from the viewModel & the object
-        adapter=new AnimalRecyclerViewAdapter(mViewModel.getAnimals(), this);
+        // Instantiate an TaskRecyclerViewAdapter, pass the data from the viewModel & the object
+        adapter=new TaskRecyclerViewAdapter(mViewModel.getAnimals(), this);
 
         // Set the adapter into the recyclerView
         recyclerView.setAdapter(adapter);

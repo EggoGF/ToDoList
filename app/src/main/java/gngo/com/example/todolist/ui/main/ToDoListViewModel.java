@@ -8,8 +8,8 @@ import androidx.lifecycle.ViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ZooListViewModel extends ViewModel {
-    public final static String TAG = "ZooListViewModel";
+public class ToDoListViewModel extends ViewModel {
+    public final static String TAG = "ToDoListViewModel";
     private DBHelper dbHelper = null;
 
     List<Task> tasks =new ArrayList<>();
@@ -18,10 +18,10 @@ public class ZooListViewModel extends ViewModel {
         return tasks;
     }
 
-    public Task addAnimal(String animalName, String description){
+    public Task addAnimal(String taskTitle, String taskDescription){
         Task task =new Task();
-        task.setName(animalName);
-        task.setDescription(description);
+        task.setTitle(taskTitle);
+        task.setDescription(taskDescription);
         //task.setType(type);
         tasks.add(task);
 
