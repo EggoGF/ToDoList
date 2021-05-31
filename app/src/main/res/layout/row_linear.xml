@@ -16,19 +16,39 @@
         app:srcCompat="@drawable/ic_bird" />-->
 
     <LinearLayout
+        android:id="@+id/row_layout_vert"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/task"
+        <LinearLayout
+            android:id="@+id/nested_layout_hor"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/list_item_top_line_padding_vertical"
-            android:paddingBottom="@dimen/list_item_padding_vertical"
-            android:text="TextView"
-            android:textSize="@dimen/list_item_top_line_font_size"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/list_item_top_line_padding_vertical"
+                android:paddingBottom="@dimen/list_item_padding_vertical"
+                android:text="TextView"
+                android:textSize="@dimen/size12"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="date"
+                android:text="@string/sample_date"
+                android:textAlignment="viewEnd"
+                android:textSize="12sp" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/description"
