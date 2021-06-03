@@ -77,7 +77,6 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-
         public final TextView txtTitle;
         public final TextView txtDescription;
         public final TextView txtDueDate;
@@ -90,7 +89,6 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
             txtDescription = view.findViewById(R.id.task_description);
             txtDueDate = view.findViewById(R.id.task_due_date);
             txtAddInfo = view.findViewById(R.id.task_addinfo);
-
         }
 
         @Override

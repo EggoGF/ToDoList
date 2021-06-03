@@ -84,7 +84,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         // Instantiate an TaskRecyclerViewAdapter, pass the data from the viewModel & the object
-        adapter=new TaskRecyclerViewAdapter(mViewModel.getAnimals(), this);
+        adapter=new TaskRecyclerViewAdapter(mViewModel.getTasks(), this);
 
         // Set the adapter into the recyclerView
         recyclerView.setAdapter(adapter);
@@ -99,11 +99,17 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
     }
 
     private void onSave(){
-        EditText name=getActivity().findViewById(R.id.task_title);
-        String animalName = name.getText().toString();
+        EditText task_title=getActivity().findViewById(R.id.task_title);
+        String taskTitle = task_title.getText().toString();
+        EditText task_description=getActivity().findViewById(R.id.task_description);
+        String taskDescription = task_description.getText().toString();
+        EditText task_due_date=getActivity().findViewById(R.id.task_due_date);
+        String taskDueDate = task_due_date.getText().toString();
+        EditText task_addinfo=getActivity().findViewById(R.id.task_addinfo);
+        String taskAddInfo = task_addinfo.getText().toString();
 
         // Don't enter info which does not contain mandatory items
-        if(TextUtils.isEmpty(animalName)){
+        if(TextUtils.isEmpty(taskTitle)){
             showMissingInfoAlert();
         } /*else {
             //EditText location = getActivity().findViewById(R.id.zoo_location);
@@ -124,7 +130,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
             }*/
 
             // Add the object at the end of the array kept in the viewModel
-            mViewModel.addAnimal(animalName, animalLoc);
+            mViewModel.addTask(taskTitle, taskDescription, taskDueDate, taskAddInfo);
 
             // Notifies the adapter that the underlying data has changed,
             //          any View reflecting the data should refresh itself.
@@ -135,7 +141,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
                     getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
         }
-    }
+
 
     @Override
     public void onItemSelected(Task task) {

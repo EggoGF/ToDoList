@@ -18,17 +18,19 @@ public class ToDoListViewModel extends ViewModel {
         return tasks;
     }
 
-    public Task addAnimal(String taskTitle, String taskDescription){
+    public Task addTask(String taskTitle, String taskDescription, String taskDueDate, String taskAddInfo){
         Task task =new Task();
         task.setTitle(taskTitle);
         task.setDescription(taskDescription);
+        task.setDueDate(taskDueDate);
+        task.setAddinfo(taskAddInfo);
         //task.setType(type);
         tasks.add(task);
 
-        long animalId;
+        long taskId;
         if (dbHelper != null){
-            animalId = dbHelper.insert(task);
-            task.setId(animalId);
+            taskId = dbHelper.insert(task);
+            task.setId(taskId);
         }
 
         return task;
