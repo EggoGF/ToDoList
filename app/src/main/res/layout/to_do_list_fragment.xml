@@ -28,42 +28,44 @@
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/zoo_nameLabel"
+                    android:id="@+id/task_titleLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/name" />
+                    android:text="@string/tasktitle" />
 
                 <EditText
-                    android:id="@+id/zoo_name"
+                    android:id="@+id/task_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="@string/hint_name"
-                    android:inputType="textPersonName"
-                    android:text="@string/hint_name" />
+                    android:hint="@string/hint_title"
+                    android:inputType="textPersonName" />
+
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/zoo_locationLabel"
+                    android:id="@+id/task_descriptionLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/location" />
+                    android:text="@string/taskdescription" />
 
-                <Spinner
-                    android:id="@+id/zoo_location"
+                <EditText
+                    android:id="@+id/task_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:entries="@array/zoo_areas"
-                    tools:listitem="@android:layout/simple_spinner_dropdown_item"/>
-<!--                <EditText
+                    android:ems="10"
+                    android:hint="@string/hint_description"
+                    android:inputType="textPersonName" />
+
+                <!--                <EditText
                     android:id="@+id/zoo_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -74,38 +76,44 @@
 
             <TableRow
                 android:id="@+id/tableRow3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/zoo_animalTypeLabel"
+                    android:id="@+id/task_duedateLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/type" />
+                    android:text="@string/taskduedate"
+                    tools:text="@string/taskduedate" />
 
-                <RadioGroup
-                    android:id="@+id/zoo_animalType"
+                <EditText
+                    android:id="@+id/task_due_date"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="date|textPersonName" />
 
-                    <RadioButton
-                        android:id="@+id/zoo_animalTypeMammal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mammal" />
+            </TableRow>
 
-                    <RadioButton
-                        android:id="@+id/zoo_animalTypeBird"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/bird" />
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                    <RadioButton
-                        android:id="@+id/zoo_animalTypeReptile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/reptile" />
-                </RadioGroup>
+                <TextView
+                    android:id="@+id/task_addinfo_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/taskaddinfo" />
+
+                <EditText
+                    android:id="@+id/task_addinfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/hint_add_info"
+                    android:inputType="textPersonName" />
+
             </TableRow>
 
         </TableLayout>
@@ -119,7 +127,7 @@
         app:layout_constraintGuide_percent=".35" />
 
     <Button
-        android:id="@+id/zoo_saveButton"
+        android:id="@+id/task_saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/save"
@@ -128,12 +136,12 @@
         app:layout_constraintTop_toBottomOf="@id/guideline" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/zoo_animals"
+        android:id="@+id/task_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/zoo_saveButton" />
+        app:layout_constraintTop_toBottomOf="@id/task_saveButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

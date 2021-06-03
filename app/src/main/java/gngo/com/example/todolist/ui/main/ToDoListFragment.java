@@ -78,7 +78,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
         mViewModel.init_database(getActivity());
 
         // Instantiate the recyclerView
-        RecyclerView recyclerView = getActivity().findViewById(R.id.zoo_animals);
+        RecyclerView recyclerView = getActivity().findViewById(R.id.task_list);
 
         // Instantiate the layoutManager and set it into the recyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -90,7 +90,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
         recyclerView.setAdapter(adapter);
 
         // Instantiate the save button and attach a listener
-        Button saveButton = getActivity().findViewById(R.id.zoo_saveButton);
+        Button saveButton = getActivity().findViewById(R.id.task_saveButton);
         saveButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 onSave();
@@ -99,7 +99,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
     }
 
     private void onSave(){
-        EditText name=getActivity().findViewById(R.id.zoo_name);
+        EditText name=getActivity().findViewById(R.id.task_title);
         String animalName = name.getText().toString();
 
         // Don't enter info which does not contain mandatory items
