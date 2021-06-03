@@ -33,7 +33,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
 
     private ToDoListViewModel mViewModel;
 
-    public final static String TAG="ZooList";
+    public final static String TAG="TaskList";
     TaskRecyclerViewAdapter adapter;
 
     public static ToDoListFragment newInstance() {
@@ -61,7 +61,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
             Log.d(TAG, " onItemClick: " + task.getTitle());
 
             // Removes the object from the array held in the viewModel
-            mViewModel.removeAnimal(task);
+            mViewModel.removeTask(task);
             // Notifies that the underlying data has changed
             adapter.notifyDataSetChanged();
         }
@@ -105,7 +105,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
         // Don't enter info which does not contain mandatory items
         if(TextUtils.isEmpty(animalName)){
             showMissingInfoAlert();
-        } else {
+        } /*else {
             //EditText location = getActivity().findViewById(R.id.zoo_location);
             Spinner zoo_area=getActivity().findViewById(R.id.zoo_location);
             String animalLoc = zoo_area.getSelectedItem().toString();
@@ -121,7 +121,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
                 case R.id.zoo_animalTypeReptile:
                     type = Task.REPTILE;
                     break;
-            }
+            }*/
 
             // Add the object at the end of the array kept in the viewModel
             mViewModel.addAnimal(animalName, animalLoc);

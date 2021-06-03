@@ -14,7 +14,7 @@ public class ToDoListViewModel extends ViewModel {
 
     List<Task> tasks =new ArrayList<>();
 
-    public List<Task> getAnimals(){
+    public List<Task> getTasks(){
         return tasks;
     }
 
@@ -34,7 +34,7 @@ public class ToDoListViewModel extends ViewModel {
         return task;
     }
 
-    public Task removeAnimal(Task task){
+    public Task removeTask (Task task){
         tasks.remove(task);
 
         // database delete record

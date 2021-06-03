@@ -1,12 +1,14 @@
 package gngo.com.example.todolist.ui.main;
 
 public class Task {
-    public final static String MAMMAL = "mammal";
+/*    public final static String MAMMAL = "mammal";
     public final static String BIRD = "bird";
-    public final static String REPTILE = "reptile";
+    public final static String REPTILE = "reptile";*/
 
     private String title="";
     private String description="";
+    private String duedate="";
+    private String addinfo="";
     //private String type="";
     protected long id = 0;
 
@@ -34,6 +36,14 @@ public class Task {
         this.description = description;
     }
 
+    public String getDueDate() { return(duedate);}
+
+    public void setDueDate(String dueDate) {this.duedate = duedate;}
+
+    public String getAddinfo() {return(addinfo);}
+
+    public void setAddinfo(String addinfo) {this.addinfo = addinfo;}
+
 /*    public String getType(){
         return (type);
     }
@@ -46,6 +56,9 @@ public class Task {
     public String toString(){
         return "Task{" +
                 "title='" + title + "'" +
-                ", description='" + description + "'";
+                ", description='" + description + "'" +
+                ", due date='" + duedate + "'" +
+                ", additional info='" + addinfo + "'" +
+                '}';
     }
 }
