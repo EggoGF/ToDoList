@@ -13,19 +13,8 @@
     <string name="hint_due_date">Enter due date</string>
     <string name="hint_add_info">Additional information here</string>
 
-    // Zoo Area Names
-    <string-array name="zoo_areas">
-        <item>Desolation Desert</item>
-        <item>Swamp of Sorrows</item>
-        <item>Jungle of Joylessness</item>
-        <item>Rueful Rainforest</item>
-        <item>Martyrs Mesa</item>
-        <item>Canyon of Cries</item>
-        <item>Forbidden Forest</item>
-        <item>Sinister Sanctuary</item>
-        <item>Abnormal Aviary</item>
-        <item>Poisonous Plains</item>
-    </string-array>
+
+
 
     // Alert strings
     <string name="alert_title">Task Title Missing</string>
@@ -36,6 +25,8 @@
     <string name="taskduedate">Due Date:</string>
     <string name="taskaddinfo">Add. Info:</string>
     <string name="hintduedate">Enter due date</string>
+    <string name="add_info_alert_title">Task Title goes here</string>
+    <string name="add_info_alert_message">Add info goes here</string>
 
 </resources>
 

@@ -177,4 +177,28 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
         // show it
         alertDialog.show();
     }
+    public void showAddInfo(){
+        ContextThemeWrapper ctw = new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctw);
+        alertDialogBuilder.setTitle(getResources().getString(R.string.add_info_alert_title));
+
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage(getResources().getString(R.string.add_info_alert_message))
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog,int id){
+                        // if this button is clicked, close current activity
+                        dialog.cancel();
+                    }
+                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+    }
 }
