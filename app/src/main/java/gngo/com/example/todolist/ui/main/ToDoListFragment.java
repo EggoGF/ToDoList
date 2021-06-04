@@ -111,23 +111,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
         // Don't enter info which does not contain mandatory items
         if(TextUtils.isEmpty(title)){
             showMissingInfoAlert();
-        } /*else {
-            //EditText location = getActivity().findViewById(R.id.zoo_location);
-            Spinner zoo_area=getActivity().findViewById(R.id.zoo_location);
-            String animalLoc = zoo_area.getSelectedItem().toString();
-            RadioGroup types = getActivity().findViewById(R.id.zoo_animalType);
-            String type = "rock";
-            switch (types.getCheckedRadioButtonId()){
-                case R.id.zoo_animalTypeMammal:
-                    type = Task.MAMMAL;
-                    break;
-                case R.id.zoo_animalTypeBird:
-                    type = Task.BIRD;
-                    break;
-                case R.id.zoo_animalTypeReptile:
-                    type = Task.REPTILE;
-                    break;
-            }*/
+        }
 
             // Add the object at the end of the array kept in the viewModel
             mViewModel.addTask(title, description, duedate, addinfo);

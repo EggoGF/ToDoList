@@ -13,21 +13,21 @@ import java.util.List;
 public final class DBHelper {
     private static final String LOGTAG = "DBHelper";
 
-    private static final String DATABASE_NAME = "animal.db";
+    private static final String DATABASE_NAME = "task.db";
     private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_NAME = "animaldata";
+    private static final String TABLE_NAME = "taskdata";
 
     // Column Names
     public static final String KEY_ID = "_id";
-    public static final String KEY_NAME = "name";
-    public static final String KEY_LOCATION = "location";
-    public static final String KEY_TYPE = "type";
+    public static final String KEY_TITLE = "title";
+    public static final String KEY_DESCRIPTION = "description";
+    public static final String KEY_ADD_INFO = "addinfo";
 
     // Column indexes
     public static final int COLUMN_ID = 0;
-    public static final int COLUMN_NAME = 1;
-    public static final int COLUMN_LOCATION = 2;
-    public static final int COLUMN_TYPE = 3;
+    public static final int COLUMN_TITLE = 1;
+    public static final int COLUMN_DESCRIPTION = 2;
+    public static final int COLUMN_ADD_INFO = 3;
 
     private Context context;
     private SQLiteDatabase db;
@@ -35,9 +35,9 @@ public final class DBHelper {
 
     private static final String INSERT =
             "INSERT INTO " + TABLE_NAME + "(" +
-                    KEY_NAME + "," +
-                    KEY_LOCATION + "," +
-                    KEY_TYPE + ") values (?,?,?)";
+                    KEY_TITLE + "," +
+                    KEY_DESCRIPTION + "," +
+                    KEY_ADD_INFO + ") values (?,?,?)";
 
     public DBHelper (Context context) throws Exception{
         this.context = context;
@@ -53,11 +53,11 @@ public final class DBHelper {
             }
         }
 
-    public long insert(Task animalinfo){
+    public long insert(Task taskinfo){
     // bind values to the pre-compiled SQL statement "inserStmt"
-        insertStmt.bindString(COLUMN_NAME, animalinfo.getTitle());
-        insertStmt.bindString(COLUMN_LOCATION, animalinfo.getDescription());
-        //insertStmt.bindString(COLUMN_TYPE, animalinfo.getType());
+        insertStmt.bindString(COLUMN_TITLE, taskinfo.getTitle());
+        insertStmt.bindString(COLUMN_DESCRIPTION, taskinfo.getDescription());
+        insertStmt.bindString(COLUMN_ADD_INFO, taskinfo.getAddinfo());
 
         long value =-1;
         try{
@@ -79,7 +79,7 @@ public final class DBHelper {
         return db.delete(TABLE_NAME, KEY_ID + "=" + rowId, null) > 0;
     }
 
-    // Creates a list of animal info retrieved from the sqlite database.
+    // Creates a list of task info retrieved from the sqlite database.
     public List<Task> selectAll(){
         List<Task> list = new ArrayList<>();
 
@@ -95,17 +95,16 @@ public final class DBHelper {
         // A Cursor provides read-write access to the result set returned by a database query.
         // A Cursor represents the result of the query and points to one row of the query result.
         Cursor cursor = db.query(TABLE_NAME,
-                new String[]{KEY_ID, KEY_NAME, KEY_LOCATION, KEY_TYPE},
+                new String[]{KEY_ID, KEY_TITLE, KEY_DESCRIPTION, KEY_ADD_INFO},
                 null, null, null, null, null);
 
         if (cursor.moveToFirst())
         {
             do {
                 Task taskInfo = new Task();
-                taskInfo.setTitle(cursor.getString(COLUMN_NAME));
-                taskInfo.setDescription(cursor.getString(COLUMN_LOCATION));
-                //taskInfo.setType(cursor.getString(COLUMN_TYPE));
-                taskInfo.setId(cursor.getLong(COLUMN_ID));
+                taskInfo.setTitle(cursor.getString(COLUMN_TITLE));
+                taskInfo.setDescription(cursor.getString(COLUMN_DESCRIPTION));
+                taskInfo.setId(cursor.getLong(COLUMN_ADD_INFO));
                 list.add(taskInfo);
             }
             while (cursor.moveToNext());
@@ -133,9 +132,9 @@ public final class DBHelper {
                 "CREATE TABLE " +
                         TABLE_NAME +
                         "(" + KEY_ID + " INTEGER PRIMARY KEY, " +
-                        KEY_NAME + " TEXT, " +
-                        KEY_LOCATION + " TEXT, " +
-                        KEY_TYPE + " TEXT);";
+                        KEY_TITLE + " TEXT, " +
+                        KEY_DESCRIPTION + " TEXT, " +
+                        KEY_ADD_INFO + " TEXT);";
 
         OpenHelper (Context context){
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
