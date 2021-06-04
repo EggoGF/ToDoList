@@ -145,6 +145,11 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
 
     @Override
     public void onItemSelected(Task task) {
+
+    }
+
+    @Override
+    public void onItemLongClick(Task task) {
         onDelete(task);
     }
 

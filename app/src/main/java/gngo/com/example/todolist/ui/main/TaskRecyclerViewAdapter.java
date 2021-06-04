@@ -20,7 +20,7 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
 
     public interface OnAdapterItemInteraction{
         void onItemSelected(Task task);
-        //test
+        void onItemLongClick(Task task);
 }
 
     private final List<Task> mValues;
@@ -46,14 +46,15 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
 
         final Task task = mValues.get(position);
 
-        holder.mView.setOnClickListener(new View.OnClickListener(){
+        holder.mView.setOnLongClickListener(new View.OnLongClickListener(){
             @Override
-            public void onClick(View v){
+            public boolean onLongClick(View v){
                 if (null != mListener){
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onItemSelected(task);
+                    mListener.onItemLongClick(task);
                 }
+                return true;
             }
         });
     }
