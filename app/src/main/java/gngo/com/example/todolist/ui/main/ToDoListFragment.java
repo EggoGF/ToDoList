@@ -145,7 +145,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
 
     @Override
     public void onItemSelected(Task task) {
-
+        showAddInfo();
     }
 
     @Override
