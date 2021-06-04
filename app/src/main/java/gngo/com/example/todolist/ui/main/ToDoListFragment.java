@@ -169,7 +169,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
         alertDialogBuilder.setTitle(task_title.getText().toString());
 
 
-
+//
         // set dialog message
         EditText task_addinfo=getActivity().findViewById(R.id.task_addinfo);
         String addinfo = task_addinfo.getText().toString();
