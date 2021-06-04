@@ -20,6 +20,7 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
 
     public interface OnAdapterItemInteraction{
         void onItemSelected(Task task);
+        //test
 }
 
     private final List<Task> mValues;
