@@ -164,12 +164,17 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
     public void showAddInfo(){
         ContextThemeWrapper ctw = new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctw);
-        alertDialogBuilder.setTitle(getResources().getString(R.string.add_info_alert_title));
+        EditText task_title=getActivity().findViewById(R.id.task_title);
+        String title = task_title.getText().toString();
+        alertDialogBuilder.setTitle(task_title.getText().toString());
+
 
 
         // set dialog message
+        EditText task_addinfo=getActivity().findViewById(R.id.task_addinfo);
+        String addinfo = task_addinfo.getText().toString();
         alertDialogBuilder
-                .setMessage(getResources().getString(R.string.add_info_alert_message))
+                .setMessage(task_addinfo.getText().toString())
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
