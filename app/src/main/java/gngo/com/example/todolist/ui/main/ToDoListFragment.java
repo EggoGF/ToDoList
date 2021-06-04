@@ -100,16 +100,16 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
 
     private void onSave(){
         EditText task_title=getActivity().findViewById(R.id.task_title);
-        String taskTitle = task_title.getText().toString();
+        String title = task_title.getText().toString();
         EditText task_description=getActivity().findViewById(R.id.task_description);
-        String taskDescription = task_description.getText().toString();
+        String description = task_description.getText().toString();
         EditText task_due_date=getActivity().findViewById(R.id.task_due_date);
-        String taskDueDate = task_due_date.getText().toString();
+        String duedate = task_due_date.getText().toString();
         EditText task_addinfo=getActivity().findViewById(R.id.task_addinfo);
-        String taskAddInfo = task_addinfo.getText().toString();
+        String addinfo = task_addinfo.getText().toString();
 
         // Don't enter info which does not contain mandatory items
-        if(TextUtils.isEmpty(taskTitle)){
+        if(TextUtils.isEmpty(title)){
             showMissingInfoAlert();
         } /*else {
             //EditText location = getActivity().findViewById(R.id.zoo_location);
@@ -130,7 +130,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
             }*/
 
             // Add the object at the end of the array kept in the viewModel
-            mViewModel.addTask(taskTitle, taskDescription, taskDueDate, taskAddInfo);
+            mViewModel.addTask(title, description, duedate, addinfo);
 
             // Notifies the adapter that the underlying data has changed,
             //          any View reflecting the data should refresh itself.

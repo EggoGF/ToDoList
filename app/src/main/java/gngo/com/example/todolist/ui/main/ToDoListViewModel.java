@@ -18,12 +18,12 @@ public class ToDoListViewModel extends ViewModel {
         return tasks;
     }
 
-    public Task addTask(String taskTitle, String taskDescription, String taskDueDate, String taskAddInfo){
+    public Task addTask(String title, String description, String duedate, String addinfo){
         Task task =new Task();
-        task.setTitle(taskTitle);
-        task.setDescription(taskDescription);
-        task.setDueDate(taskDueDate);
-        task.setAddinfo(taskAddInfo);
+        task.setTitle(title);
+        task.setDescription(description);
+        task.setDueDate(duedate);
+        task.setAddinfo(addinfo);
         //task.setType(type);
         tasks.add(task);
 

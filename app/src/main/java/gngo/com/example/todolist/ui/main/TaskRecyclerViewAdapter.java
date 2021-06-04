@@ -41,7 +41,7 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
         holder.txtTitle.setText(mValues.get(position).getTitle());
         holder.txtDescription.setText(mValues.get(position).getDescription());
         holder.txtDueDate.setText(mValues.get(position).getDueDate());
-        holder.txtAddInfo.setText(mValues.get(position).getAddinfo());
+        //holder.txtAddInfo.setText(mValues.get(position).getAddinfo());
 
         final Task task = mValues.get(position);
 
@@ -80,15 +80,15 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
         public final TextView txtTitle;
         public final TextView txtDescription;
         public final TextView txtDueDate;
-        public final TextView txtAddInfo;
+        //public final TextView txtAddInfo;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            txtTitle = view.findViewById(R.id.task_title);
-            txtDescription = view.findViewById(R.id.task_description);
-            txtDueDate = view.findViewById(R.id.task_due_date);
-            txtAddInfo = view.findViewById(R.id.task_addinfo);
+            txtTitle = view.findViewById(R.id.task);
+            txtDescription = view.findViewById(R.id.description);
+            txtDueDate = view.findViewById(R.id.editTextDate);
+            //txtAddInfo = view.findViewById(R.id.task_addinfo);
         }
 
         @Override

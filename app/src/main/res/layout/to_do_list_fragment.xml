@@ -8,7 +8,7 @@
     tools:context=".ui.main.ToDoListFragment">
 
     <ScrollView
-        android:id="@+id/zoo_scroll_view"
+        android:id="@+id/todo_list_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/guideline"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TableLayout
-            android:id="@+id/zoo_inputControls"
+            android:id="@+id/todo_list_inputControls"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin5"
