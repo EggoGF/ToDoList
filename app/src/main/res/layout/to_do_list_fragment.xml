@@ -34,15 +34,18 @@
                     android:id="@+id/task_titleLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tasktitle" />
+                    android:text="@string/tasktitle"
+                    android:textSize="12sp" />
 
                 <EditText
                     android:id="@+id/task_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin5"
                     android:ems="10"
                     android:hint="@string/hint_title"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textSize="12sp" />
 
             </TableRow>
 
@@ -55,15 +58,18 @@
                     android:id="@+id/task_descriptionLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/taskdescription" />
+                    android:text="@string/taskdescription"
+                    android:textSize="12sp" />
 
                 <EditText
                     android:id="@+id/task_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin5"
                     android:ems="10"
                     android:hint="@string/hint_description"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textSize="12sp" />
 
                 <!--                <EditText
                     android:id="@+id/zoo_location"
@@ -84,14 +90,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/taskduedate"
+                    android:textSize="12sp"
                     tools:text="@string/taskduedate" />
 
                 <EditText
                     android:id="@+id/task_due_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin5"
                     android:ems="10"
-                    android:inputType="date|textPersonName" />
+                    android:hint="@string/hintduedate"
+                    android:inputType="date"
+                    android:textSize="12sp" />
 
             </TableRow>
 
@@ -104,15 +114,18 @@
                     android:id="@+id/task_addinfo_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/taskaddinfo" />
+                    android:text="@string/taskaddinfo"
+                    android:textSize="12sp" />
 
                 <EditText
                     android:id="@+id/task_addinfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin5"
                     android:ems="10"
                     android:hint="@string/hint_add_info"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textSize="12sp" />
 
             </TableRow>
 

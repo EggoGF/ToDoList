@@ -11,7 +11,7 @@
     <string name="hint_title">Enter task here</string>
     <string name="hint_description">Enter description here</string>
     <string name="hint_due_date">Enter due date</string>
-    <string name="hint_add_info">Enter additional information here</string>
+    <string name="hint_add_info">Additional information here</string>
 
     // Zoo Area Names
     <string-array name="zoo_areas">
@@ -34,7 +34,8 @@
     <string name="tasktitle">Title:</string>
     <string name="taskdescription">Description:</string>
     <string name="taskduedate">Due Date:</string>
-    <string name="taskaddinfo">Additional Info:</string>
+    <string name="taskaddinfo">Add. Info:</string>
+    <string name="hintduedate">Enter due date</string>
 
 </resources>
 
