@@ -21,13 +21,15 @@ public final class DBHelper {
     public static final String KEY_ID = "_id";
     public static final String KEY_TITLE = "title";
     public static final String KEY_DESCRIPTION = "description";
+    public static final String KEY_DUE_DATE = "duedate";
     public static final String KEY_ADD_INFO = "addinfo";
 
     // Column indexes
     public static final int COLUMN_ID = 0;
     public static final int COLUMN_TITLE = 1;
     public static final int COLUMN_DESCRIPTION = 2;
-    public static final int COLUMN_ADD_INFO = 3;
+    public static final int COLUMN_DUE_DATE = 3;
+    public static final int COLUMN_ADD_INFO = 4;
 
     private Context context;
     private SQLiteDatabase db;
@@ -37,7 +39,8 @@ public final class DBHelper {
             "INSERT INTO " + TABLE_NAME + "(" +
                     KEY_TITLE + "," +
                     KEY_DESCRIPTION + "," +
-                    KEY_ADD_INFO + ") values (?,?,?)";
+                    KEY_DUE_DATE + "," +
+                    KEY_ADD_INFO + ") values (?,?,?,?)";
 
     public DBHelper (Context context) throws Exception{
         this.context = context;
@@ -57,6 +60,7 @@ public final class DBHelper {
     // bind values to the pre-compiled SQL statement "inserStmt"
         insertStmt.bindString(COLUMN_TITLE, taskinfo.getTitle());
         insertStmt.bindString(COLUMN_DESCRIPTION, taskinfo.getDescription());
+        insertStmt.bindString(COLUMN_DUE_DATE, taskinfo.getDueDate());
         insertStmt.bindString(COLUMN_ADD_INFO, taskinfo.getAddinfo());
 
         long value =-1;
@@ -95,16 +99,18 @@ public final class DBHelper {
         // A Cursor provides read-write access to the result set returned by a database query.
         // A Cursor represents the result of the query and points to one row of the query result.
         Cursor cursor = db.query(TABLE_NAME,
-                new String[]{KEY_ID, KEY_TITLE, KEY_DESCRIPTION, KEY_ADD_INFO},
+                new String[]{KEY_ID, KEY_TITLE, KEY_DESCRIPTION, KEY_DUE_DATE, KEY_ADD_INFO},
                 null, null, null, null, null);
 
         if (cursor.moveToFirst())
         {
             do {
                 Task taskInfo = new Task();
+                taskInfo.setId(cursor.getLong(COLUMN_ID));
                 taskInfo.setTitle(cursor.getString(COLUMN_TITLE));
                 taskInfo.setDescription(cursor.getString(COLUMN_DESCRIPTION));
-                taskInfo.setId(cursor.getLong(COLUMN_ADD_INFO));
+                taskInfo.setDueDate(cursor.getString(COLUMN_DUE_DATE));
+                taskInfo.setAddinfo(cursor.getString(COLUMN_ADD_INFO));
                 list.add(taskInfo);
             }
             while (cursor.moveToNext());
@@ -134,6 +140,7 @@ public final class DBHelper {
                         "(" + KEY_ID + " INTEGER PRIMARY KEY, " +
                         KEY_TITLE + " TEXT, " +
                         KEY_DESCRIPTION + " TEXT, " +
+                        KEY_DUE_DATE + " TEXT, " +
                         KEY_ADD_INFO + " TEXT);";
 
         OpenHelper (Context context){

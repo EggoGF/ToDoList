@@ -98,7 +98,7 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
             mView = view;
             txtTitle = view.findViewById(R.id.task);
             txtDescription = view.findViewById(R.id.description);
-            txtDueDate = view.findViewById(R.id.editTextDate);
+            txtDueDate = view.findViewById(R.id.duedate);
         }
 
         @Override
