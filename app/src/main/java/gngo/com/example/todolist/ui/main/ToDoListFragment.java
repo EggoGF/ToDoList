@@ -23,8 +23,6 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import gngo.com.example.todolist.R;
@@ -165,14 +163,12 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
         ContextThemeWrapper ctw = new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctw);
         EditText task_title=getActivity().findViewById(R.id.task_title);
-        String title = task_title.getText().toString();
         alertDialogBuilder.setTitle(task_title.getText().toString());
 
 
 //
         // set dialog message
         EditText task_addinfo=getActivity().findViewById(R.id.task_addinfo);
-        String addinfo = task_addinfo.getText().toString();
         alertDialogBuilder
                 .setMessage(task_addinfo.getText().toString())
                 .setCancelable(false)

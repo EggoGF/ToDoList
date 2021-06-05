@@ -24,7 +24,6 @@ public class ToDoListViewModel extends ViewModel {
         task.setDescription(description);
         task.setDueDate(duedate);
         task.setAddinfo(addinfo);
-        //task.setType(type);
         tasks.add(task);
 
         long taskId;
