@@ -38,7 +38,7 @@ public class Task {
 
     public String getDueDate() { return(duedate);}
 
-    public void setDueDate(String dueDate) {this.duedate = duedate;}
+    public void setDueDate(String duedate) {this.duedate = duedate;}
 
     public String getAddinfo() {return(addinfo);}
 
