@@ -108,7 +108,11 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
 
         // Don't enter info which does not contain mandatory items
         if(TextUtils.isEmpty(title)){
-            showMissingInfoAlert();
+            showMissingTitleAlert();
+            }
+
+        if(TextUtils.isEmpty(duedate)){
+            showMissingDueDateAlert();
         }
 
             // Add the object at the end of the array kept in the viewModel
@@ -135,15 +139,15 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
         onDelete(task);
     }
 
-    public void showMissingInfoAlert(){
+    public void showMissingTitleAlert(){
         ContextThemeWrapper ctw = new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctw);
-        alertDialogBuilder.setTitle(getResources().getString(R.string.alert_title));
+        alertDialogBuilder.setTitle(getResources().getString(R.string.alert_title_header));
 
 
         // set dialog message
         alertDialogBuilder
-                .setMessage(getResources().getString(R.string.alert_message))
+                .setMessage(getResources().getString(R.string.alert_title_message))
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
@@ -159,6 +163,25 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
         // show it
         alertDialog.show();
     }
+
+    public void showMissingDueDateAlert(){
+        ContextThemeWrapper ctw = new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctw);
+        alertDialogBuilder.setTitle(getResources().getString(R.string.alert_duedate_header));
+
+        alertDialogBuilder
+                .setMessage(getResources().getString(R.string.alert_duedate_message))
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog,int id){
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
     public void showAddInfo(){
         ContextThemeWrapper ctw = new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctw);
