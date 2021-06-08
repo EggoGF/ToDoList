@@ -197,7 +197,7 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
 //
         // set dialog message
         String show_addinfo_addinfo = task.getAddinfo().toString();
-        if (show_addinfo_addinfo == ""){
+        if (TextUtils.isEmpty(show_addinfo_addinfo)){
             show_addinfo_addinfo = "No additional information entered";
         }
         alertDialogBuilder
