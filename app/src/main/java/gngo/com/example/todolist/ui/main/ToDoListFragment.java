@@ -96,26 +96,29 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
         });
     }
 
-    private void onSave(){
-        EditText task_title=getActivity().findViewById(R.id.task_title);
+    private void onSave() {
+        EditText task_title = getActivity().findViewById(R.id.task_title);
         String title = task_title.getText().toString();
-        EditText task_description=getActivity().findViewById(R.id.task_description);
+        EditText task_description = getActivity().findViewById(R.id.task_description);
         String description = task_description.getText().toString();
-        EditText task_due_date=getActivity().findViewById(R.id.task_due_date);
+        EditText task_due_date = getActivity().findViewById(R.id.task_due_date);
         String duedate = task_due_date.getText().toString();
-        EditText task_addinfo=getActivity().findViewById(R.id.task_addinfo);
+        EditText task_addinfo = getActivity().findViewById(R.id.task_addinfo);
         String addinfo = task_addinfo.getText().toString();
+        boolean addTask = true;
 
         // Don't enter info which does not contain mandatory items
-        if(TextUtils.isEmpty(title)){
+        if (TextUtils.isEmpty(title)) {
             showMissingTitleAlert();
-            }
-
-        if(TextUtils.isEmpty(duedate)){
-            showMissingDueDateAlert();
+            addTask = false;
         }
 
+        if (TextUtils.isEmpty(duedate)) {
+            showMissingDueDateAlert();
+            addTask = false;
+        }
 
+        if (addTask) {
             // Add the object at the end of the array kept in the viewModel
             mViewModel.addTask(title, description, duedate, addinfo);
 
@@ -126,8 +129,9 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
             // Remove the soft keyboard after hitting the save button
             InputMethodManager inputManager = (InputMethodManager)
                     getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+            inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
+    }
 
 
     @Override
