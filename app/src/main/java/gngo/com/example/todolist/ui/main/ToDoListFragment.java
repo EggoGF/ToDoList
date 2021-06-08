@@ -115,6 +115,10 @@ public class ToDoListFragment extends Fragment implements TaskRecyclerViewAdapte
             showMissingDueDateAlert();
         }
 
+        if(TextUtils.isEmpty(addinfo)){
+            addinfo = "No additional information entered";
+        }
+
             // Add the object at the end of the array kept in the viewModel
             mViewModel.addTask(title, description, duedate, addinfo);
 

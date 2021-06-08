@@ -180,7 +180,4 @@ public final class DBHelper {
             // db.execSQL(upgradeQuery_ADD_AREA);
         }
     }
-
-
-
 }
